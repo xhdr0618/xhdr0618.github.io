@@ -16,7 +16,8 @@ const copierTasks = {
 }
 
 export type OutputCopierOptions = {
-  integ: Array<'sitemap' | 'pagefind'>
+  integ: Array<'sitemap' | 'pagefind'>,
+  staticMode?: boolean
 }
 
 export const outputCopier = (
@@ -32,7 +33,7 @@ export const outputCopier = (
         opts.integ.map(async (integ) => {
           const copier = copierTasks[integ]
           if (copier) {
-            await copier(buildLogger)
+            await copier(buildLogger, opts.staticMode)
           } else {
             buildLogger.warn(`No copier found for integration: ${integ}`)
           }
@@ -42,10 +43,12 @@ export const outputCopier = (
   }
 })
 
-async function sitemapCopier(logger: AstroIntegrationLogger) {
+async function sitemapCopier(logger: AstroIntegrationLogger, staticMode?: boolean) {
   logger.info('[sitemap] Copying XML files to .vercel/output/static')
   try {
-    const files = await readdir('./dist/client')
+    // 在静态模式下，文件直接放在dist目录而不是dist/client
+    const baseDir = staticMode ? './dist' : './dist/client'
+    const files = await readdir(baseDir)
     const xmlFiles = files.filter(
       (file) =>
         path.extname(file).toLowerCase() === '.xml' &&
@@ -54,7 +57,7 @@ async function sitemapCopier(logger: AstroIntegrationLogger) {
     logger.info(xmlFiles.join(', '))
     await Promise.all(
       xmlFiles.map(async (file) => {
-        const sourcePath = path.join('./dist/client', file)
+        const sourcePath = path.join(baseDir, file)
         const destPath = path.join('./.vercel/output/static', file)
         await cp(sourcePath, destPath)
       })
@@ -64,9 +67,10 @@ async function sitemapCopier(logger: AstroIntegrationLogger) {
   }
 }
 
-async function pagefindCopier(logger: AstroIntegrationLogger) {
+async function pagefindCopier(logger: AstroIntegrationLogger, staticMode?: boolean) {
   logger.info('[pagefind] Copying pagefind folder to .vercel/output/static')
-  const sourcePath = './dist/client/pagefind'
+  // 在静态模式下，文件直接放在dist目录而不是dist/client
+  const sourcePath = staticMode ? './dist/pagefind' : './dist/client/pagefind'
   const destPath = './.vercel/output/static/pagefind'
   try {
     await cp(sourcePath, destPath, { recursive: true })

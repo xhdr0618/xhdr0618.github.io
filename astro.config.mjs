@@ -36,8 +36,8 @@ export default defineConfig({
   // Adapter
   // https://docs.astro.build/en/guides/deploy/
   // 1. Vercel (serverless)
-  adapter: vercel(),
-  output: 'server',
+  // adapter: vercel(),
+  output: 'static',
   // 2. Vercel (static)
   // adapter: vercelStatic(),
   // 3. Local (standalone)
@@ -65,7 +65,8 @@ export default defineConfig({
     // Temporary fix vercel adapter
     // static build method is not needed
     outputCopier({
-      integ: ['sitemap', 'pagefind']
+      integ: ['sitemap', 'pagefind'],
+      staticMode: true
     })
   ],
   // root: './my-project-directory',
