@@ -29,7 +29,7 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://astro-pure.js.org',
+  site: 'https://xhdr0618.github.io',
   // base: '/docs',
   trailingSlash: 'never',
 

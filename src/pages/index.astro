@@ -12,9 +12,8 @@ import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.png'
 import config from '@/site-config'
 
-const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
-const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
-const backend = ['Vercel', 'Waline']
+const languages = ['Python', 'C++']
+const ai = ['PyTorch']
 
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
@@ -38,39 +37,30 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
-            title='Source code'
+            title='GitHub'
             as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
+            href='https://github.com/xhdr0618'
             target='_blank'
           >
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
+          <Label
+            title='Email'
+            as='a'
+            href='mailto:hongruizhang.ai@gmail.com'
+            target='_blank'
+          >
+            <Icon name='email' class='size-5' slot='icon' />
+          </Label>
         </div>
       </div>
 
-      {/* Get template */}
-      <a
-        href='https://github.com/cworld1/astro-theme-pure'
-        target='_blank'
-        class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
-      >
-        <span class='relative flex items-center justify-center'>
-          <span
-            class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
-          ></span>
-          <span class='size-2 rounded-full bg-green-400'></span>
-        </span>
-        <p class='font-medium text-muted-foreground'>Get Template</p>
-      </a>
-    </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
+        <p class='text-muted-foreground'>学生 </p>
         <p class='text-muted-foreground'>
-          Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione
-          indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel,
-          at eum oratio possit voluptatum.
+          我是一名华南理工大学大数据系22级本科生，目前研究方向为知识蒸馏和医疗ai，感兴趣的方向有半监督学习、LLM、超图、持续学习、表征学习。
         </p>
         <Button title='More about me' class='w-fit self-end' href='/about' style='ahead' />
       </Section>
@@ -121,9 +111,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Section title='Education'>
         <Card
           as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
-          date='August 2021 - July 2025'
+          heading='华南理工大学'
+          subheading='数据科学与大数据技术系 本科'
+          date='Sep 2022 - Present'
           href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         >
           {
@@ -138,7 +128,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         </Card>
       </Section>
 
-      <Section title='Website List'>
+      <!-- <Section title='Website List'>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
             href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
@@ -175,14 +165,12 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           date='July 2024'
           href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         />
-      </Section>
+      </Section> -->
 
       <Section title='Skills'>
         <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='Frontend' skills={frontend} />
-        <SkillLayout title='Backend' skills={backend} />
+        <SkillLayout title='AI' skills={ai} />
       </Section>
     </div>
-    <Quote class='mt-12' />
   </main>
 </PageLayout>
