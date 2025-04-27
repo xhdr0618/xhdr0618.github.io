@@ -5,7 +5,7 @@ description: 'Paper Reading 3'
 tags:
   - 论文分享
   - MLLM
-heroImage: { src: './thumbnail.jpg', color: '#C9A66B' }
+heroImage: { src: './thumbnail.jpg', color: '#FF5F7E' }
 ---
 
 MLLM的连接器有三大类方式：以LLaVA-1.5为代表的MLP，以BLIP-2为代表的Q-Former，以Flamingo为代表的Resampler。其中MLP因为其更小的参数量和最简单的形式被广泛用于后续研究。今天我们分享的是就是LLaVA-1.5的前身LLaVA，在2023NIPS的Oral《Visual Instruction Tuning》中提出。

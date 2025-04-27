@@ -5,7 +5,7 @@ description: 'Paper Reading 2'
 tags:
   - 论文分享
   - MLLM
-heroImage: { src: './thumbnail.jpeg', color: '#C9A66B' }
+heroImage: { src: './thumbnail.jpeg', color: '#1A3C5A' }
 ---
 
 今天分享的是一篇很有意思的2025年AAAI的文章《DigitalLLaVA: Incorporating Digital Cognition Capability for Physical World Comprehension in Multimodal LLMs》

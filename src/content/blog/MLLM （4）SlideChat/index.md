@@ -5,7 +5,7 @@ description: 'Paper Reading 4'
 tags:
   - 论文分享
   - MLLM
-heroImage: { src: './thumbnail.jpg', color: '#C9A66B' }
+heroImage: { src: './thumbnail.jpg', color: '#092756' }
 ---
 
 今天分享的是一篇2025CVPR的医疗MLLM-《SlideChat:A Large Vision-Language Assistant for Whole-Slide Pathology Image Understanding》
